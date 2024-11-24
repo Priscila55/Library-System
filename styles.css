@@ -1,0 +1,264 @@
+/* Basic page setup */
+
+* {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%; /*Ensure that both html and body take up the full height of viewport, when there is litte or no content on the page*/
+}
+
+body {
+    background: rgb(212,210,210);
+background: radial-gradient(circle, rgba(212,210,210,1) 0%, rgba(245,244,244,0.8533724340175953) 50%);
+}
+
+
+
+/* Sidebar Styles */
+#navBarController {
+    height: 100%; 
+    width: 0; 
+    position: fixed; 
+    top: 0;
+    left: 0;
+    background-color: #111; 
+    overflow-x: hidden; 
+    padding-top: 60px; 
+    transition: 0.5s; 
+}
+
+/* Sidebar links */
+#navBarController a {
+    padding: 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+/* Links hover effect */
+#navBarController a:hover {
+    color: #f1f1f1;
+}
+
+/* Close button styles */
+.closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    color: #818181;
+    cursor: pointer;
+}
+
+/* Button to open the sidebar */
+.openBtn {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+}
+
+/* styling the login page */
+.login-container {
+    font-size: 1.2rem; 
+    color: #110e0e; 
+    text-align: center; 
+    width: 100vw;
+    height: 100vh;
+}
+
+.login-box {
+    background: #ffffff;
+    padding: 30px;
+    width: 400px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.25);
+    margin-inline: auto;
+    transform: translateY(200px);
+    border: 0.3px solid black;
+}
+
+.login-box a {
+    text-decoration: none;
+}
+
+.login-box input[type="username"],
+.login-box input[type="password"] {
+    width: 100%;
+    padding: 10px 0;
+    margin: 15px 0;
+    border: none;
+    border-bottom: 2px solid #ddd;
+    background-color: transparent; /* Keeps background clear */
+    font-size: 1rem;
+    color: #333; /* Text color */
+    transition: border-color 0.3s ease, background-color 0.3s ease; /* Smooth transitions */
+}
+
+.login-box input[type="username"]:focus,
+.login-box input[type="password"]:focus {
+    border-bottom: 2px solid #333;
+    background-color: transparent; /* Ensures background stays clear */
+    outline: none;
+}
+
+/* Style for login button */
+.login-box .btn {
+    width: 25%;
+    height: 30px;
+    font-size: 1rem;
+    border: none;
+    transition: background-color 0.3s, transform 0.5s;
+    margin-top: 10px;
+}
+
+
+input[type=text] {
+    float: right;
+    padding: 6px;
+    border: none;
+    margin-top: 8px;
+    margin-right: 16px;
+    font-size: 17px;
+  }
+
+  /* Style for registration page */
+.registerContainer {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    margin-inline: auto;
+
+}
+
+.register-box {
+    width: 100%;
+    background-color: #dfdfdf8c;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+p {
+    text-align: center;
+}
+
+/* Layout for labels and inputs */
+.registerContainer {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.register-box {
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    width: 100%;
+    padding: 0 10px;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;  /* Makes input fields take up the full width */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin-bottom: 15px; 
+    outline: none; 
+}
+
+
+.registerbtn {
+    background-color: #e2e2e2;
+    color: rgb(0, 0, 0);
+    padding: 10px;
+    margin-top: 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    font-size: 14px;
+    border-radius: 4px;
+}
+
+.registerbtn:hover {
+    background-color: #bdbdbd;
+}
+
+.signinContainer {
+    text-align: center;
+    margin-top: 20px;
+    clear: both;
+}
+
+logout-btn {
+    background-color: #ff4d4d; /* Red background */
+    color: white;              /* White text */
+    padding: 10px 15px;        /* Padding around the text */
+    text-decoration: none;     /* Remove underline */
+    border: none;              /* Remove border */
+    border-radius: 5px;        /* Rounded corners */
+    cursor: pointer;          /* Pointer cursor on hover */
+    width: 100%;               /* Make the button take up the full width of the sidebar */
+    font-size: 16px;           /* Larger font size */
+}
+
+.logout-btn:hover {
+    background-color: #cc0000; /* Darker red when hovering */
+}
+
+/* Search box style */
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* Style for the search input */
+input[type="search"] {
+    width: 300px; 
+    padding: 10px; 
+    border-radius: 5px; 
+    border: 2px solid #ccc;
+    font-size: 16px; 
+    outline: none; 
+    transition: border-color 0.3s ease; 
+}
+
+/* Change border color on focus */
+input[type="search"]:focus {
+    border-color: #c6cac7; 
+}
+
+input[type = "button"] {
+    width: 50px;
+    font-size: 20px;
+}
