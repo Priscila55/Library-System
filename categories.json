@@ -1,0 +1,410 @@
+[
+  {
+    "id": 1,
+    "description": "Fiction"
+  },
+  {
+    "id": 2,
+    "description": "Literary Criticism"
+  },
+  {
+    "id": 3,
+    "description": "Juvenile Fiction"
+  },
+  {
+    "id": 4,
+    "description": "Creative ability in science"
+  },
+  {
+    "id": 5,
+    "description": "Unknown Category"
+  },
+  {
+    "id": 6,
+    "description": "Private investigators"
+  },
+  {
+    "id": 7,
+    "description": "Ayesha (Fictitious character : Haggard)"
+  },
+  {
+    "id": 8,
+    "description": "Art"
+  },
+  {
+    "id": 9,
+    "description": "Emotions"
+  },
+  {
+    "id": 10,
+    "description": "Courtship"
+  },
+  {
+    "id": 11,
+    "description": "Fantasy fiction"
+  },
+  {
+    "id": 12,
+    "description": "Bengali fiction"
+  },
+  {
+    "id": 13,
+    "description": "Creation in art"
+  },
+  {
+    "id": 14,
+    "description": "FICTION"
+  },
+  {
+    "id": 15,
+    "description": "Abandoned children"
+  },
+  {
+    "id": 16,
+    "description": "Detective and mystery stories"
+  },
+  {
+    "id": 17,
+    "description": "Science"
+  },
+  {
+    "id": 18,
+    "description": "Nature"
+  },
+  {
+    "id": 19,
+    "description": "History"
+  },
+  {
+    "id": 20,
+    "description": "Psychology"
+  },
+  {
+    "id": 21,
+    "description": "Biography & Autobiography"
+  },
+  {
+    "id": 22,
+    "description": "Social Science"
+  },
+  {
+    "id": 23,
+    "description": "Cooking"
+  },
+  {
+    "id": 24,
+    "description": "Human ecology"
+  },
+  {
+    "id": 25,
+    "description": "Business & Economics"
+  },
+  {
+    "id": 26,
+    "description": "Language Arts & Disciplines"
+  },
+  {
+    "id": 27,
+    "description": "Mathematics"
+  },
+  {
+    "id": 28,
+    "description": "Technology & Engineering"
+  },
+  {
+    "id": 29,
+    "description": "Extraterrestrial anthropology"
+  },
+  {
+    "id": 30,
+    "description": "Medical"
+  },
+  {
+    "id": 31,
+    "description": "Reference"
+  },
+  {
+    "id": 32,
+    "description": "Physics"
+  },
+  {
+    "id": 33,
+    "description": "Computers"
+  },
+  {
+    "id": 34,
+    "description": "Complexity (Philosophy)"
+  },
+  {
+    "id": 35,
+    "description": "Body, Mind & Spirit"
+  },
+  {
+    "id": 36,
+    "description": "Architecture"
+  },
+  {
+    "id": 37,
+    "description": "Health & Fitness"
+  },
+  {
+    "id": 38,
+    "description": "Philosophy"
+  },
+  {
+    "id": 39,
+    "description": "Religion"
+  },
+  {
+    "id": 40,
+    "description": "Gardening"
+  },
+  {
+    "id": 41,
+    "description": "Political Science"
+  },
+  {
+    "id": 42,
+    "description": "Education"
+  },
+  {
+    "id": 43,
+    "description": "Electronic books"
+  },
+  {
+    "id": 44,
+    "description": "Evolution"
+  },
+  {
+    "id": 45,
+    "description": "Australasia"
+  },
+  {
+    "id": 46,
+    "description": "Civilization, Medieval"
+  },
+  {
+    "id": 47,
+    "description": "Europe"
+  },
+  {
+    "id": 48,
+    "description": "Sports"
+  },
+  {
+    "id": 49,
+    "description": "Olympic games (Ancient)"
+  },
+  {
+    "id": 50,
+    "description": "Design"
+  },
+  {
+    "id": 51,
+    "description": "Drama"
+  },
+  {
+    "id": 52,
+    "description": "Asia, Southeastern"
+  },
+  {
+    "id": 53,
+    "description": "Crafts & Hobbies"
+  },
+  {
+    "id": 54,
+    "description": "Farm life"
+  },
+  {
+    "id": 55,
+    "description": "Great Britain Foreign relations United States"
+  },
+  {
+    "id": 56,
+    "description": "Ethics"
+  },
+  {
+    "id": 57,
+    "description": "Law"
+  },
+  {
+    "id": 58,
+    "description": "Liberty"
+  },
+  {
+    "id": 59,
+    "description": "Musicals"
+  },
+  {
+    "id": 60,
+    "description": "Family & Relationships"
+  },
+  {
+    "id": 61,
+    "description": "Criminal psychology"
+  },
+  {
+    "id": 62,
+    "description": "Social sciences"
+  },
+  {
+    "id": 63,
+    "description": "Self-Help"
+  },
+  {
+    "id": 64,
+    "description": "Literary Collections"
+  },
+  {
+    "id": 65,
+    "description": "Confucian parables"
+  },
+  {
+    "id": 66,
+    "description": "Knowledge, Theory of"
+  },
+  {
+    "id": 67,
+    "description": "Taoism"
+  },
+  {
+    "id": 68,
+    "description": "Authors, American"
+  },
+  {
+    "id": 69,
+    "description": "Apologetics"
+  },
+  {
+    "id": 70,
+    "description": "Juvenile Nonfiction"
+  },
+  {
+    "id": 71,
+    "description": "Físics-"
+  },
+  {
+    "id": 72,
+    "description": "American literature"
+  },
+  {
+    "id": 73,
+    "description": "Brothers"
+  },
+  {
+    "id": 74,
+    "description": "Biography"
+  },
+  {
+    "id": 75,
+    "description": "Rock musicians"
+  },
+  {
+    "id": 76,
+    "description": "Biographies"
+  },
+  {
+    "id": 77,
+    "description": "Bibliographies"
+  },
+  {
+    "id": 78,
+    "description": "Aircraft accidents"
+  },
+  {
+    "id": 79,
+    "description": "BIOGRAPHY & AUTOBIOGRAPHY"
+  },
+  {
+    "id": 80,
+    "description": "Anti-Nazi movement"
+  },
+  {
+    "id": 81,
+    "description": "African American mathematicians"
+  },
+  {
+    "id": 82,
+    "description": "Authorship"
+  },
+  {
+    "id": 83,
+    "description": "MEDICAL"
+  },
+  {
+    "id": 84,
+    "description": "Drug traffic"
+  },
+  {
+    "id": 85,
+    "description": "Bio-bibliography"
+  },
+  {
+    "id": 86,
+    "description": "Audiobooks"
+  },
+  {
+    "id": 87,
+    "description": "Arrest"
+  },
+  {
+    "id": 88,
+    "description": "Music"
+  },
+  {
+    "id": 89,
+    "description": "Auca Indians"
+  },
+  {
+    "id": 90,
+    "description": "Authors"
+  },
+  {
+    "id": 91,
+    "description": "Elizabeth II."
+  },
+  {
+    "id": 92,
+    "description": "Afghan War, 2001-"
+  },
+  {
+    "id": 93,
+    "description": "Auvers-sur-Oise (France)"
+  },
+  {
+    "id": 94,
+    "description": "Art objects, Korean"
+  },
+  {
+    "id": 95,
+    "description": "Performing Arts"
+  },
+  {
+    "id": 96,
+    "description": "Graphic novels"
+  },
+  {
+    "id": 97,
+    "description": "Art, Modern"
+  },
+  {
+    "id": 98,
+    "description": "Poetry"
+  },
+  {
+    "id": 99,
+    "description": "Art, Hindu"
+  },
+  {
+    "id": 100,
+    "description": "Antiques & Collectibles"
+  },
+  {
+    "id": 101,
+    "description": "Humor"
+  },
+  {
+    "id": 102,
+    "description": "Daphnis (Greek mythology)"
+  }
+]

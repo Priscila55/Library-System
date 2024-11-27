@@ -1,8 +1,8 @@
 <?php
 // Database connection details
-$servername = "localhost"; 
-$username = "root"; 
-$password = ""; 
+$servername = "localhost";
+$username = "root";
+$password = "";
 $dbname = "library_system";
 
 // Create connection
@@ -11,12 +11,10 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
-} else {
-    echo "Connected to the database successfully.<br>";
 }
 
-// Path to the books.json file
-$jsonFile = 'books.json';  // Update this path if needed
+// Path to the booksNew.json file
+$jsonFile = 'booksNew.json';  // Update this path if needed
 
 // Check if the JSON file exists
 if (file_exists($jsonFile)) {
@@ -32,7 +30,7 @@ if (file_exists($jsonFile)) {
     }
 
     // Prepare SQL statement for inserting data into the books table
-    $stmt = $conn->prepare("INSERT INTO books (ISBN, BookTitle, Author, Edition, Year, CategoryID) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO books (ISBN, BookTitle, Author, Edition, Year, CategoryID, URL) VALUES (?, ?, ?, ?, ?, ?, ?)");
 
     // Check if the prepare statement was successful
     if ($stmt === false) {
@@ -40,7 +38,7 @@ if (file_exists($jsonFile)) {
     }
 
     // Bind parameters for the prepared statement
-    $stmt->bind_param("sssssi", $isbn, $title, $author, $edition, $year, $categoryID);
+    $stmt->bind_param("sssssis", $isbn, $title, $author, $edition, $year, $categoryID, $imageUrl);
 
     // Iterate through each book and insert it into the database
     foreach ($books as $book) {
@@ -50,12 +48,10 @@ if (file_exists($jsonFile)) {
         $author = isset($book['author']) ? $book['author'] : '';
         $edition = isset($book['edition']) ? $book['edition'] : '';
         $year = isset($book['year']) ? $book['year'] : '';
-
-        // Now, get the CategoryID based on the CategoryDescription (assuming you have a 'category' field in your JSON)
-        $categoryDescription = isset($book['category']) ? $book['category'] : ''; // Assuming 'category' field exists in JSON
+        $categoryDescription = isset($book['category']) ? $book['category'] : '';  // Assuming 'category' field exists in JSON
 
         // Get the CategoryID based on the category name
-        $categoryQuery = $conn->prepare("SELECT CategoryID FROM category WHERE CategoryDescription = ?");
+        $categoryQuery = $conn->prepare("SELECT ID FROM category WHERE Description = ?");
         $categoryQuery->bind_param("s", $categoryDescription);
         $categoryQuery->execute();
         $categoryQuery->bind_result($categoryID);
@@ -63,9 +59,11 @@ if (file_exists($jsonFile)) {
 
         // If category doesn't exist, set a default (e.g., 'Unknown')
         if (!$categoryID) {
-            // You can insert a default category or skip the record
             $categoryID = 1;  // Assuming '1' is the default or unknown category ID
         }
+
+        // Get the Image URL from the JSON data (this will be stored in the 'URL' column)
+        $imageUrl = isset($book['imageUrl']) ? $book['imageUrl'] : '';  // Use the 'imageUrl' field from JSON
 
         // Execute the statement to insert the book into the books table
         if (!$stmt->execute()) {
@@ -79,7 +77,7 @@ if (file_exists($jsonFile)) {
     $stmt->close();
     echo "Books data inserted successfully.<br>";
 } else {
-    echo "Error: books.json file not found.<br>";
+    echo "Error: booksNew.json file not found.<br>";
 }
 
 // Close the database connection
