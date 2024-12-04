@@ -1,78 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Reservation Home</title>
-    <link rel = "stylesheet" href = "styles.css">
-</head>
-<body>
-<header>
-        <h1>Welcome to Book Reservation</h1>
-        <p>Unlock a world of books ready for reservation with just one click</p>
-</header>
+<?php
+session_start();  // Start the session to store the user info
 
-<?php include 'navBarController.php' ;?>>
+// Check if form was submitted
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    include 'database.php';  // Include your database connection
 
-    <?php
+    $username = $_POST['username'];
+    $password = $_POST['password'];
 
-    session_start();
+    // Query to find user based on username
+    $sql = "SELECT UserID, Username, Password FROM users WHERE Username = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $username);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
-    // connection to the databse 
-    $servername = "localhost"; 
-    $username = "root"; 
-    $password = ""; 
-    $dbname = "library_system"; 
+    // Check if user exists
+    if ($result->num_rows > 0) {
+        $user = $result->fetch_assoc();
 
-    // create connection
-    $conn = new mysqli($servername, $username, $password, $dbname);
+        // Check if the password matches (assuming the password is hashed)
+        if (password_verify($password, $user['Password'])) {
+            // Store user info in session
+            $_SESSION['user'] = $username;  // Store the username in session
+            $_SESSION['userID'] = $user['UserID']; // Store the userID in session
 
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        // Check if both username and password are set in the POST request
-        if (isset($_POST['username']) && isset($_POST['password'])) {
-            // Get form data
-            $username = $_POST['username'];
-            $password = $_POST['password'];
-    
-            // Hash the password for security (though we only need it for registration)
-            $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-    
-            // check if username exists in the database
-            $checkUsername = "SELECT * FROM users WHERE username = '$username'";
-            $result = $conn->query($checkUsername);
-    
-            if ($result->num_rows > 0) {
-                // Username exists
-                $user = $result->fetch_assoc();
-    
-                // verify password
-                if (password_verify($password, $user['Password'])) {
-                    $_SESSION['user'] = $user['Username'];
-    
-                    // Redirect to the main page after successful login
-                    header("Location: mainPage.php");
-                    exit();
-                } else {
-                    // Password is incorrect
-                    echo "Invalid password. Please try again";
-                }
-            } else {
-                // Username doesn't exist
-                echo "No account found with that username. Please <a href='register.php'>register</a>";
-            }
+            // Redirect to mainPage.php after successful login
+            header("Location: mainPage.php");
+            exit();
         } else {
-            // If username or password is missing
-            echo "Please fill out both the username and password fields.";
+            // Invalid password
+            echo "Invalid password!";
         }
+    } else {
+        // User not found
+        echo "User not found!";
     }
-    
-    
-// Close connection
-$conn->close();
+
+    $stmt->close();
+}
 ?>
-</body>
-</html>
