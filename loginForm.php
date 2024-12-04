@@ -1,3 +1,14 @@
+<?php
+session_start(); // Start the session
+
+if (isset($_SESSION['user'])) {
+    // If already logged in, redirect to the main page
+    header("Location: mainPage.php");
+    exit();
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,6 +38,6 @@
             <p class="register-link">Don't have an account? <a href="register.php">Register here</a></p>
         </div>
     </section>
-
+    <?php include 'footer.php'; ?>
 </body>
 </html>
