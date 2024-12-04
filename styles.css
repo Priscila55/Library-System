@@ -218,47 +218,346 @@ input[type="password"] {
     clear: both;
 }
 
-logout-btn {
-    background-color: #ff4d4d; /* Red background */
-    color: white;              /* White text */
-    padding: 10px 15px;        /* Padding around the text */
-    text-decoration: none;     /* Remove underline */
-    border: none;              /* Remove border */
-    border-radius: 5px;        /* Rounded corners */
-    cursor: pointer;          /* Pointer cursor on hover */
-    width: 100%;               /* Make the button take up the full width of the sidebar */
-    font-size: 16px;           /* Larger font size */
+
+.logout-link {
+    background-color: #111;
+    color: white;
+    padding: 8px 20px;
+    border-radius: 5px;
+    font-size: 18px;
+    text-align: center;
+    margin-top: 10px;
+    display: block;
 }
 
-.logout-btn:hover {
-    background-color: #cc0000; /* Darker red when hovering */
+.logout-link:hover {
+    background-color: #d32f2f;
+    text-decoration: none;
 }
 
-/* Search box style */
+.openBtn {
+    font-size: 20px;
+    background-color: #111;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    width: 50px;
+    height: 50px;
+}
+
+/* main page */
+
+ /* Centering container styles */
+ .center-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh; /* Adjust height as needed */
+}
+
+/* Box and layout styling */
 .box {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 10px; /* Adds spacing between elements */
+    margin: 50px auto;
+    text-align: center;
+}
+
+/* Search input styling */
+#search {
+    width: 300px;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    font-size: 16px;
+    outline: none;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+#search:focus {
+    border-color: #007bff;
+    box-shadow: 0px 4px 8px rgba(0, 123, 255, 0.2);
+}
+
+/* Submit button styling */
+#button {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    background-color: #9ea5ac;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#button:hover {
+    background-color: #a0a6ac;
+}
+
+/* Dropdown container styling */
+.search_container {
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #f9f9f9;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 5px;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+    font-size: 14px;
+    border-bottom: 1px solid #ddd;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown-content.show {
+    display: block;
+}
+
+.random-books-section {
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.random-books-section h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.random-books-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.random-books-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.random-book-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+    width: 200px;
+    text-align: center;
+    transition: transform 0.2s ease-in-out;
+}
+
+.random-book-item:hover {
+    transform: scale(1.05);
+}
+
+.random-book-item strong {
+    font-size: 18px;
+    color: #c5b6bf;
+    display: block;
+}
+
+.random-book-item span {
+    color: #555;
+}
+
+
+
+/* Container for the entire page */
+.container {
+    max-width: 800px;
+    margin: 0 auto; /* Centers the content */
+    padding: 20px;
+    text-align: center;
+}
+
+/* The container holding the reserved books */
+.reservations_container {
+    margin-top: 30px; /* Adds space between the header and the reserved books section */
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow around the container */
+    text-align: left; /* Align text to the left */
+    max-width: 1000px;
+    margin: 30px auto;
+}
+
+/* List style for the reserved books */
+.reservations_container ul {
+    list-style-type: none; /* Removes bullet points */
+    padding: 0;
+    margin: 0;
+}
+
+/* Each list item */
+.reservations_container li {
+    margin-bottom: 15px; /* Adds space between each book */
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adds light shadow around each list item */
+}
+
+.reserved-btn {
+    background-color: #9dbceb; /* Grey background for reserved button */
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: not-allowed; /* Disabled cursor for the reserved button */
+}
+
+.reserved-btn:hover {
+    background-color: #ccc; /* Prevent hover effect on reserved button */
+}
+/* The Unreserve button style */
+.unreserve-btn {
+    background-color: #e74c3c;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.unreserve-btn:hover {
+    background-color: #c0392b; /* Darker red when hovered */
+}
+
+.reservations_container h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+
+/* Book display container */
+.books-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns for book cards */
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Individual book card */
+.book-card {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.book-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Book details */
+.book-details h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.book-details p {
+    font-size: 1rem;
+    margin: 5px 0;
+}
+
+/* Reserve button styling */
+.reserve-btn {
+    background-color: #190a9c;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.reserve-btn:hover {
+    background-color: #c3c0d6;
+}
+
+/* Pagination styles */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-top: 20px;
+    margin-bottom: 20px; /* Adds space above the footer */
 }
 
-/* Style for the search input */
-input[type="search"] {
-    width: 300px; 
-    padding: 10px; 
-    border-radius: 5px; 
-    border: 2px solid #ccc;
-    font-size: 16px; 
-    outline: none; 
-    transition: border-color 0.3s ease; 
+.pagination a {
+    text-decoration: none;
+    color: #7c7c7c;
+    padding: 8px 16px;
+    margin: 0 5px;
+    border-radius: 5px;
 }
 
-/* Change border color on focus */
-input[type="search"]:focus {
-    border-color: #c6cac7; 
+.pagination a:hover {
+    background-color: #f0f0f0;
 }
 
-input[type = "button"] {
-    width: 50px;
-    font-size: 20px;
+.current-page {
+    background-color: #190a9c;
+    color: white;
+    padding: 8px 16px;
+    font-weight: bold;
+    border-radius: 5px;
 }
+
+footer {
+    background-color: #ffffff;
+    color: #b3b3b3;
+    text-align: center;
+    padding: 20px;
+    margin-top: auto;
+    font-size: 16px;
+}
+
+footer .footer-container p {
+    margin: 0;
+    font-size: 14px;
+    color: #000000;
+}
+
+footer .footer-container p:hover {
+    color: #fff;
+    cursor: pointer;
+}
+
