@@ -22,21 +22,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Check if the password matches (assuming the password is hashed)
         if (password_verify($password, $user['Password'])) {
             // Store user info in session
-            $_SESSION['user'] = $username;  // Store the username in session
-            $_SESSION['userID'] = $user['UserID']; // Store the userID in session
+            $_SESSION['user'] = $username;  
+            $_SESSION['userID'] = $user['UserID']; 
 
             // Redirect to mainPage.php after successful login
             header("Location: mainPage.php");
             exit();
         } else {
-            // Invalid password
-            echo "Invalid password!";
+            // Invalid password - Set error message in session
+            $_SESSION['error'] = "Incorrect password. Please try again.";
         }
     } else {
-        // User not found
-        echo "User not found!";
+        // User not found - Set error message in session
+        $_SESSION['error'] = "No account found with that username. Please check and try again.";
     }
 
     $stmt->close();
+
+    // Redirect back to login form
+    header("Location: loginForm.php");
+    exit();
 }
 ?>
