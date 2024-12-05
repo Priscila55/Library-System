@@ -1,14 +1,19 @@
-/* Basic page setup */
 
 * {
-    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+code, pre, .monospace-text {
+    font-family: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Cantarell", "Source Code Pro", "Fira Mono", "Droid Sans Mono", Verdana, monospace;
+    font-size: 1em;
+    color: #5f6b79
+}
+
+
 html, body {
-    height: 100%; /*Ensure that both html and body take up the full height of viewport, when there is litte or no content on the page*/
+    height: 100%; 
 }
 
 body {
@@ -29,6 +34,7 @@ background: radial-gradient(circle, rgba(212,210,210,1) 0%, rgba(245,244,244,0.8
     overflow-x: hidden; 
     padding-top: 60px; 
     transition: 0.5s; 
+    z-index: 1000000;
 }
 
 /* Sidebar links */
@@ -74,7 +80,7 @@ header {
     padding: 20px;
 }
 
-/* styling the login page */
+/*  login page */
 .login-container {
     font-size: 1.2rem; 
     color: #110e0e; 
@@ -92,6 +98,7 @@ header {
     margin-inline: auto;
     transform: translateY(200px);
     border: 0.3px solid black;
+
 }
 
 .login-box a {
@@ -105,20 +112,20 @@ header {
     margin: 15px 0;
     border: none;
     border-bottom: 2px solid #ddd;
-    background-color: transparent; /* Keeps background clear */
+    background-color: transparent; 
     font-size: 1rem;
-    color: #333; /* Text color */
-    transition: border-color 0.3s ease, background-color 0.3s ease; /* Smooth transitions */
+    color: #333; 
+    transition: border-color 0.3s ease, background-color 0.3s ease; 
 }
 
 .login-box input[type="username"]:focus,
 .login-box input[type="password"]:focus {
     border-bottom: 2px solid #333;
-    background-color: transparent; /* Ensures background stays clear */
+    background-color: transparent; 
     outline: none;
 }
 
-/* Style for login button */
+/*  login button */
 .login-box .btn {
     width: 25%;
     height: 30px;
@@ -128,6 +135,11 @@ header {
     margin-top: 10px;
 }
 
+.error-message {
+    color: red;
+    font-weight: bold;
+    margin: 10px 0;
+}
 
 input[type=text] {
     float: right;
@@ -138,7 +150,7 @@ input[type=text] {
     font-size: 17px;
   }
 
-  /* Style for registration page */
+  /*  registration page */
 .registerContainer {
     display: flex;
     justify-content: center;
@@ -164,11 +176,18 @@ p {
     text-align: center;
 }
 
-/* Layout for labels and inputs */
+/* Register */
 .registerContainer {
     display: flex;
     justify-content: center;
     padding: 20px;
+}
+
+.required:after {
+    content: " *";
+    color: red;
+    font-weight: bold;
+    margin-left: 5px;
 }
 
 .register-box {
@@ -212,13 +231,14 @@ input[type="password"] {
     background-color: #bdbdbd;
 }
 
+
 .signinContainer {
     text-align: center;
     margin-top: 20px;
     clear: both;
 }
 
-
+/* logout */
 .logout-link {
     background-color: #111;
     color: white;
@@ -248,13 +268,13 @@ input[type="password"] {
 
 /* main page */
 
- /* Centering container styles */
+ /* Center container */
  .center-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 60vh; /* Adjust height as needed */
+    min-height: 60vh; 
 }
 
 /* Box and layout styling */
@@ -262,7 +282,7 @@ input[type="password"] {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px; /* Adds spacing between elements */
+    gap: 10px; 
     margin: 50px auto;
     text-align: center;
 }
@@ -284,7 +304,7 @@ input[type="password"] {
     box-shadow: 0px 4px 8px rgba(0, 123, 255, 0.2);
 }
 
-/* Submit button styling */
+/* Submit button */
 #button {
     padding: 12px 15px;
     border: 1px solid #ddd;
@@ -298,10 +318,10 @@ input[type="password"] {
 }
 
 #button:hover {
-    background-color: #a0a6ac;
+    background-color: #91a2b4;
 }
 
-/* Dropdown container styling */
+/* Dropdown container */
 .search_container {
     display: flex; 
     flex-direction: column;
@@ -345,55 +365,70 @@ input[type="password"] {
     display: block;
 }
 
+/* random books section */
 .random-books-section {
-    margin: 20px 0;
-    padding: 20px;
-    border-radius: 8px;
+    padding: 60px 20px;
+    margin-top: 40px;
+    text-align: center;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 1200px; 
+    margin-left: auto;
+    margin-right: auto; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.random-books-section h3 {
-    font-size: 24px;
-    margin-bottom: 15px;
+h3 {
+    text-transform: uppercase;
+    letter-spacing: 1px;
     color: #333;
+    margin-bottom: 40px;
 }
 
 .random-books-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-}
-
-.random-books-list {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
+    gap: 30px;
+    justify-items: center;
+    padding: 0 20px;
 }
 
 .random-book-item {
+    list-style-type: none;
     background-color: #fff;
-    border: 1px solid #ddd;
-    padding: 15px;
-    border-radius: 8px;
-    width: 200px;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
     text-align: center;
-    transition: transform 0.2s ease-in-out;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    width: 100%;
+    max-width: 280px;
+    cursor: pointer;
+    word-wrap: break-word; 
+    overflow: hidden; 
 }
 
 .random-book-item:hover {
-    transform: scale(1.05);
+    transform: translateY(-10px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+    background-color: #f8f8f8;
 }
 
 .random-book-item strong {
-    font-size: 18px;
-    color: #c5b6bf;
     display: block;
+    font-size: 1.2em;
+    margin-bottom: 10px;
 }
 
 .random-book-item span {
+    display: block;
+    font-size: 1em;
     color: #555;
+    margin-bottom: 10px;
 }
-
 
 
 /* Container for the entire page */
@@ -404,19 +439,19 @@ input[type="password"] {
     text-align: center;
 }
 
-/* The container holding the reserved books */
+/* The container for reserved books */
 .reservations_container {
-    margin-top: 30px; /* Adds space between the header and the reserved books section */
+    margin-top: 30px; 
     padding: 20px;
     background-color: #f9f9f9;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow around the container */
-    text-align: left; /* Align text to the left */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    text-align: left; 
     max-width: 1000px;
     margin: 30px auto;
 }
 
-/* List style for the reserved books */
+/* reserved books */
 .reservations_container ul {
     list-style-type: none; /* Removes bullet points */
     padding: 0;
@@ -541,23 +576,21 @@ input[type="password"] {
     border-radius: 5px;
 }
 
+/* Footer */
 footer {
-    background-color: #ffffff;
-    color: #b3b3b3;
-    text-align: center;
-    padding: 20px;
-    margin-top: auto;
-    font-size: 16px;
-}
-
-footer .footer-container p {
-    margin: 0;
-    font-size: 14px;
-    color: #000000;
-}
-
-footer .footer-container p:hover {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #53c1c5;
     color: #fff;
-    cursor: pointer;
+    text-align: center;
+    padding: 10px 0;
+    z-index: 1000;
 }
 
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
