@@ -1,3 +1,8 @@
+<?php
+session_start();
+include 'database.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,53 +12,38 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <?php include 'navBarController.php'; 
-    include 'database.php' ?>
-
+    <?php include 'navBarController.php'; ?>
 
     <header>
         <h1>Welcome to Book Reservation</h1>
         <p>Unlock a world of books ready for reservation with just one click</p>
     </header>
 
-    <div class = "search_container">
-    <form method="GET" action="displayBooksController.php">
-        <div class="dropdown">
-            <!-- Search Input -->
-            <input 
-                type="search" 
-                name="search" 
-                id="search" 
-                placeholder="Search books by title or author" 
-                onfocus="showDropdown()" 
-                oninput="showDropdown()" 
-                autocomplete="off" 
-            />
-
-            <!-- Submit Button -->
-            <button type="submit" id="button">Search</button>
-
-            <!-- Filter Dropdown -->
-            <div class="dropdown-content" id="dropdownContent">
-                <a href="books.php?category=fiction">Fiction</a>
-                <a href="books.php?category=science">Science</a>
-                <a href="books.php?category=history">History</a>
-                <a href="books.php?category=philosophy">Philosophy</a>
-                <a href="books.php?category=biography">Biography</a>
-                <a href="books.php?category=art">Art</a>
-                <a href="books.php?category=computers">Computers</a>
-                <a href="books.php?category=mathematics">Mathematics</a>
-                <a href="books.php?category=medicine">Medicine</a>
-                <a href="books.php?category=technology">Technology</a>
-                <a href="books.php?category=education">Education</a>
-                <a href="books.php?category=psychology">Psychology</a>
-                <a href="books.php?category=sports">Sports</a>
-                <a href="books.php?category=travel">Travel</a>
-                <a href="books.php?category=cooking">Cooking</a>
+    <div class="search_container">
+        <form method="GET" action="books.php">
+            <div class="dropdown">
+                <input type="search" name="search" id="search" placeholder="Search books by title or author" onfocus="showDropdown()" oninput="showDropdown()" autocomplete="off" />
+                <button type="submit" id="button">Search</button>
+                <div class="dropdown-content" id="dropdownContent">
+                    <a href="books.php?category=fiction">Fiction</a>
+                    <a href="books.php?category=science">Science</a>
+                    <a href="books.php?category=history">History</a>
+                    <a href="books.php?category=philosophy">Philosophy</a>
+                    <a href="books.php?category=biography">Biography</a>
+                    <a href="books.php?category=art">Art</a>
+                    <a href="books.php?category=computers">Computers</a>
+                    <a href="books.php?category=mathematics">Mathematics</a>
+                    <a href="books.php?category=medicine">Medicine</a>
+                    <a href="books.php?category=technology">Technology</a>
+                    <a href="books.php?category=education">Education</a>
+                    <a href="books.php?category=psychology">Psychology</a>
+                    <a href="books.php?category=sports">Sports</a>
+                    <a href="books.php?category=travel">Travel</a>
+                    <a href="books.php?category=cooking">Cooking</a>
+                </div>
             </div>
-        </div>
-     </div>
-    </form>
+        </form>
+    </div>
 
     <div class="random-books-section">
         <h3>Trending Now</h3>
@@ -71,12 +61,22 @@
                 }
 
                 if (!empty($randomBooks)) {
-                    foreach ($randomBooks as $book): ?>
+                    foreach ($randomBooks as $book):
+                ?>
                         <li class="random-book-item">
                             <strong><?php echo htmlspecialchars($book['title']); ?></strong><br>
-                            <span>by <?php echo htmlspecialchars($book['author']); ?></span>
+                            <span>by <?php echo htmlspecialchars($book['author']); ?></span><br>
+
+                            <!-- Reserve Button Form -->
+                            <form action="<?php echo isset($_SESSION['user']) ? 'reservedBooksController.php' : 'loginForm.php'; ?>" method="POST">
+                                <input type="hidden" name="isbn" value="<?php echo htmlspecialchars($book['isbn']); ?>">
+                                <button type="submit" class="reserve-btn">
+                                    <?php echo isset($_SESSION['user']) ? 'Reserve' : 'Log in to Reserve'; ?>
+                                </button>
+                            </form>
                         </li>
-                    <?php endforeach;
+                <?php 
+                    endforeach;
                 } else { ?>
                     <p>No trending books available at the moment.</p>
                 <?php } ?>
@@ -94,14 +94,12 @@
         window.addEventListener('click', function (e) {
             const dropdownContent = document.getElementById('dropdownContent');
             const searchInput = document.getElementById('search');
-
-            // Check if the click is outside both the dropdown and the search input
             if (!dropdownContent.contains(e.target) && e.target !== searchInput) {
                 dropdownContent.classList.remove('show');
             }
         });
     </script>
 
-<?php include 'footer.php'; ?>
+    <?php include 'footer.php'; ?>
 </body>
 </html>
