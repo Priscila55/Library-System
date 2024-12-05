@@ -13,20 +13,20 @@
 <section class = "registerContainer">
     <div class = "register-box">
 <form action= "registerController.php" method = "POST">
-        <h1>Register</h1>
+        <h1>Create Account</h1>
         <p>Please fill in this form to create an account.</p>
         <hr>
 
-        <label for = "username"><b>Username</b></label>  </label>
+        <label for = "username" class = "required"><b>Username</b></label>  </label>
         <input type = "text" placeholder = "Enter Username" name = "username" id = "username" required> 
 
-        <label for = "firstname"><b>First Name: </b> </label>
+        <label for = "firstname"  class = "required"><b>First Name: </b> </label>
         <input type = "text" placeholder = "Enter First Name" name = "firstname" id = "firstname" required>
 
-        <label for = "surname"><b>Surname: </b></label>
+        <label for = "surname"  class = "required"><b>Surname: </b></label>
         <input type = "text" placeholder = "Enter Surname" name = "surname" id = "surname" required>
 
-        <label for = "addressLine1"><b>Address Line 1: </b></label>
+        <label for = "addressLine1"  class = "required"><b>Address Line 1: </b></label>
         <input type = "text" placeholder = "Enter Address Line 1" name = "addressLine1" id = "addressLine1" required>
 
         
@@ -34,14 +34,14 @@
         <input type = "text" placeholder = "Enter Address Line 2" name = "addressLine2" id = "addressLine2">
 
         
-        <label for = "city"><b>City:  </b></label>
+        <label for = "city"  class = "required"><b>City:  </b></label>
         <input type = "text" placeholder = "Enter city" name = "city" id = "city">
 
         
-        <label for = "mobile"><b>Mobile: </b></label>
+        <label for = "mobile"  class = "required"><b>Mobile: </b></label>
         <input type = "text" placeholder = "Enter mobile" name = "mobile" id = "mobile" required>
 
-        <label for = "password"><b>Password</b></label>
+        <label for = "password"  class = "required"><b>Password</b></label>
         <input type = "password" placeholder = "Enter Password" name = "password" id = "password" required>
         <label for = "password_confirmation">Confirm Password: </label>
         <input type = "password" id = "password_confirmation" name = "password_confirmation" length = "6" required>
@@ -56,6 +56,8 @@
     </div>
 </form>
 </section>
+
+<?php include 'footer.php'; ?>
 
 </body>
 </html>
