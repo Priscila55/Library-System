@@ -1,13 +1,13 @@
 <?php
 session_start();
 
-// Ensure the user is logged in
+// Make sure user is logged in
 if (!isset($_SESSION['user'])) {
     header("Location: loginForm.php"); // Redirect to login if not logged in
     exit();
 }
 
-include 'database.php'; // Include the database connection
+include 'database.php'; 
 
 $username = $_SESSION['user']; // Get the logged-in username
 
@@ -20,7 +20,7 @@ $resultUserID = $stmtUserID->get_result();
 
 if ($resultUserID->num_rows > 0) {
     $row = $resultUserID->fetch_assoc();
-    $userID = $row['userID']; // Get the userID for the logged-in user
+    $userID = $row['userID']; // userID for the logged in user
 } else {
     echo "Error: User not found.";
     exit();
@@ -58,11 +58,11 @@ $resultReservations = $stmtReservations->get_result();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Reservations</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to the external CSS -->
+    <link rel="stylesheet" href="styles.css"> 
 </head>
 <body>
 
-<?php include 'navBarController.php'; ?> <!-- Include your navigation bar -->
+<?php include 'navBarController.php'; ?> 
 
 <h1>My Reservations</h1>
 
@@ -73,7 +73,6 @@ $resultReservations = $stmtReservations->get_result();
 
         // Display each reserved book
         while ($reservation = $resultReservations->fetch_assoc()) {
-            // Add a class 'reserved-book' to the list item to style it
             echo "<li class='reserved-book'>";
             echo "ISBN: " . htmlspecialchars($reservation['ISBN']) . " (Reserved on: " . htmlspecialchars($reservation['ReservedDate']) . ")";
 
