@@ -7,19 +7,7 @@
 </head>
 <body>
 <?php
-// Database configuration
-$servername = "localhost"; 
-$username = "root"; 
-$password = ""; 
-$dbname = "library_system";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+include 'database.php';
 
 // Handle form submission
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
