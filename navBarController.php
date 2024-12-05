@@ -40,12 +40,12 @@ if (session_status() == PHP_SESSION_NONE) {
 <script>
     // Function to open the sidebar
     function openNav() {
-        document.getElementById("navBarController").style.width = "250px";  // Open sidebar
+        document.getElementById("navBarController").style.width = "250px";  // Opens the sidebar
     }
 
     // Function to close the sidebar
     function closeNav() {
-        document.getElementById("navBarController").style.width = "0";  // Close sidebar
+        document.getElementById("navBarController").style.width = "0";  // Closes the sidebar
     }
 </script>
 
