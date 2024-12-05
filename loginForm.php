@@ -25,6 +25,16 @@ if (isset($_SESSION['user'])) {
     <section class="login-container">
         <div class="login-box">
             <h2>Login</h2>
+   
+        <?php
+        // Display error message as text if available
+        if (isset($_SESSION['error'])) {
+            echo "<p style='color: red; font-weight: bold'>" . $_SESSION['error'] . "</p>";
+            // Clear the error message after it's displayed
+            unset($_SESSION['error']);
+        }
+        ?>
+
             <!--Login form -->
             <form method="POST" action="loginController.php">
                 <div class="textbox">
@@ -38,6 +48,7 @@ if (isset($_SESSION['user'])) {
             <p class="register-link">Don't have an account? <a href="register.php">Register here</a></p>
         </div>
     </section>
+
     <?php include 'footer.php'; ?>
 </body>
 </html>
